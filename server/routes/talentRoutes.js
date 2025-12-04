@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Talent = require('../Models/Talent');
 const User = require('../Models/User');
-const ctrl = require("../Controllers/talent.controller");
+const ctrl = require("../controllers/talent.controller");
 
 // 🔹 1) Route du nuage de compétences
 router.get("/map", ctrl.generateTalentMap);
