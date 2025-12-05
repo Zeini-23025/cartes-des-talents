@@ -14,9 +14,11 @@ app.use((req, res, next) => {
 });
 
 app.use(cors({
-  origin: "http://localhost:5173",
-  origin: "https://cartes-des-talents.onrender.com/",
-
+  origin: [
+    "http://localhost:5173",
+    "https://cartes-des-talents.onrender.com",
+    "https://cartes-des-talents-htsl.vercel.app"
+  ],
   credentials: true
 }));
 
