@@ -23,6 +23,21 @@ app.use(cors({
 app.use(bodyParser.json());
 
 // Importer routes
+const path = require('path');
+
+// Root route for health check and to avoid 404 at /
+app.get('/', (req, res) => {
+  res.send('API is running');
+});
+
+// Serve favicon.ico if present, else return 204
+app.get('/favicon.ico', (req, res) => {
+  res.sendFile(path.join(__dirname, 'favicon.ico'), err => {
+    if (err) {
+      res.status(204).end(); // No Content if not found
+    }
+  });
+});
 const userRoutes = require('./routes/userRoutes');
 const talentRoutes = require('./routes/talentRoutes');
 const projetRoutes = require('./routes/projetRoutes');
