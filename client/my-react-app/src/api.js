@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: `${process.env.url}`/"api", // toutes tes routes commencent par /api
+  baseURL: `${process.env.url.replace(/\/$/, '')}/api`, // Ensure no trailing slash and correct path
 });
 
 // --- AUTH ---
