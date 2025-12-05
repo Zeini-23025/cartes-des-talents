@@ -6,6 +6,13 @@ const sequelize = require('./db'); // config sequelize
 const app = express();
 
 // CORS CORRECT CONFIGURATION
+
+// Header CSP pour autoriser favicon et images
+app.use((req, res, next) => {
+  res.setHeader("Content-Security-Policy", "default-src 'self'; img-src 'self' data: https:;");
+  next();
+});
+
 app.use(cors({
   origin: "http://localhost:5173",
   credentials: true
