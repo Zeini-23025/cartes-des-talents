@@ -15,6 +15,8 @@ app.use((req, res, next) => {
 
 app.use(cors({
   origin: "http://localhost:5173",
+  origin: "https://cartes-des-talents.onrender.com/",
+
   credentials: true
 }));
 
