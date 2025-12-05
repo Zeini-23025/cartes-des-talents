@@ -1,0 +1,7 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: white; /* ← Change ici */
+  color: black;
+  font-family: Arial, sans-serif;
+}

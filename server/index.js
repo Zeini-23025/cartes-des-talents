@@ -4,7 +4,13 @@ const cors = require('cors');
 const sequelize = require('./db'); // config sequelize
 
 const app = express();
-app.use(cors());
+
+// CORS CORRECT CONFIGURATION
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true
+}));
+
 app.use(bodyParser.json());
 
 // Importer routes
@@ -14,13 +20,11 @@ const projetRoutes = require('./routes/projetRoutes');
 const searchRoutes = require('./routes/searchRoutes');
 const collaboratorRoutes = require('./routes/collaboratorRoutes');
 
-
 app.use('/api/users', userRoutes);
 app.use('/api/talents', talentRoutes);
 app.use('/api/projets', projetRoutes);
 app.use('/api/search', searchRoutes);
 app.use('/api/collaborators', collaboratorRoutes);
-
 
 // Test DB
 sequelize.authenticate()
